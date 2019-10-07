@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTracing.ServiceOne", "OpenTracing.ServiceOne\OpenTracing.ServiceOne.csproj", "{E1351A42-C2A5-4446-965D-F6B4813226C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenTracing.ServiceTwo", "OpenTracing.ServiceTwo\OpenTracing.ServiceTwo.csproj", "{EBC1FE56-D332-4195-BBD9-35686B3FF2E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppInsights.ServiceOne", "AppInsights.ServiceOne\AppInsights.ServiceOne.csproj", "{5DE44589-080B-4CCB-A178-2F69823BFE73}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppInsights.ServiceTwo", "AppInsights.ServiceTwo\AppInsights.ServiceTwo.csproj", "{9365BE42-2E5D-48B0-8AF0-3E0202E1AC42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.ServiceOne", "Serilog.ServiceOne\Serilog.ServiceOne.csproj", "{2A3FC93D-4F01-458F-BA8F-ABEBAEDBA482}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.ServiceTwo", "Serilog.ServiceTwo\Serilog.ServiceTwo.csproj", "{C26C8CDB-6B27-4E94-B4C0-A248ADB4E0C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1351A42-C2A5-4446-965D-F6B4813226C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1351A42-C2A5-4446-965D-F6B4813226C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1351A42-C2A5-4446-965D-F6B4813226C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1351A42-C2A5-4446-965D-F6B4813226C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBC1FE56-D332-4195-BBD9-35686B3FF2E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBC1FE56-D332-4195-BBD9-35686B3FF2E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBC1FE56-D332-4195-BBD9-35686B3FF2E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBC1FE56-D332-4195-BBD9-35686B3FF2E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DE44589-080B-4CCB-A178-2F69823BFE73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DE44589-080B-4CCB-A178-2F69823BFE73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DE44589-080B-4CCB-A178-2F69823BFE73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DE44589-080B-4CCB-A178-2F69823BFE73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9365BE42-2E5D-48B0-8AF0-3E0202E1AC42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9365BE42-2E5D-48B0-8AF0-3E0202E1AC42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9365BE42-2E5D-48B0-8AF0-3E0202E1AC42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9365BE42-2E5D-48B0-8AF0-3E0202E1AC42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A3FC93D-4F01-458F-BA8F-ABEBAEDBA482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A3FC93D-4F01-458F-BA8F-ABEBAEDBA482}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A3FC93D-4F01-458F-BA8F-ABEBAEDBA482}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A3FC93D-4F01-458F-BA8F-ABEBAEDBA482}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C26C8CDB-6B27-4E94-B4C0-A248ADB4E0C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C26C8CDB-6B27-4E94-B4C0-A248ADB4E0C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C26C8CDB-6B27-4E94-B4C0-A248ADB4E0C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C26C8CDB-6B27-4E94-B4C0-A248ADB4E0C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F84D85E9-02C2-430D-85B1-69DF7C1A2B59}
+	EndGlobalSection
+EndGlobal
