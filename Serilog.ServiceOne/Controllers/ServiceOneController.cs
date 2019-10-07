@@ -15,14 +15,10 @@ namespace Serilog.ServiceOne.Controllers
         [HttpGet]
         public async Task<ActionResult<string>> Get()
         {
-            TelemetryConfiguration config = new TelemetryConfiguration("9cb2b528-bc45-451b-8ad6-97d686d7cb79");
-            config.TelemetryInitializers.Add(new Models.AppInsightsTelemetryInitializer());
-
-
             Log.Logger = new LoggerConfiguration()
                 .WriteTo.Console()
                 .WriteTo
-                .ApplicationInsights(config, TelemetryConverter.Traces)
+                .ApplicationInsights(TelemetryConfiguration.Active, TelemetryConverter.Traces)
                 .CreateLogger();
 
             Log.Information("Serilog.Starting");
