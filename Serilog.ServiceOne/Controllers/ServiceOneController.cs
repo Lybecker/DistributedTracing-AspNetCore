@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
-using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Serilog.ServiceOne.Controllers
 {
@@ -12,24 +9,23 @@ namespace Serilog.ServiceOne.Controllers
     [ApiController]
     public class ServiceOneController : ControllerBase
     {
+        private readonly ILogger<ServiceOneController> _logger;
+
+        public ServiceOneController(ILogger<ServiceOneController> logger)
+        {
+            _logger = logger;
+        }
+
         [HttpGet]
         public async Task<ActionResult<string>> Get()
         {
-            Log.Logger = new LoggerConfiguration()
-                .WriteTo.Console()
-                .WriteTo
-                .ApplicationInsights(TelemetryConfiguration.Active, TelemetryConverter.Traces)
-                .CreateLogger();
-
-            Log.Information("Serilog.Starting");
+            _logger.LogInformation("Serilog.Starting");
 
             var client = new HttpClient();
 
-            var response = await client.GetStringAsync("http://localhost:50850/servicetwo");
-            //var response = await client.GetStringAsync("http://localhost:5000/servicetwo");
+            var response = await client.GetStringAsync("http://localhost:5001/servicetwo");
 
-
-            Log.Information("Serilog.Done");
+            _logger.LogInformation("Serilog.Done");
 
             return response;
         }

@@ -32,7 +32,18 @@ namespace Serilog.ServiceOne
             {
                 module.Initialize(TelemetryConfiguration.Active);
                 module.EnableW3CHeadersInjection = true;
-            }); services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            });
+
+            var sp = services.BuildServiceProvider();
+            var telemetryConfig = sp.GetRequiredService<TelemetryConfiguration>();
+
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.ApplicationInsights(telemetryConfig, TelemetryConverter.Traces)
+                .CreateLogger();
+
+            services.AddSingleton<Serilog.ILogger>(Log.Logger);
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
