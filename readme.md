@@ -12,3 +12,8 @@ The path compared are:
 1. Direct to Applicaiton Insights via native SDK (baseline)
 2. Open Tracing via PetaBrdige driver to Application Insights
 3. Serilog with Application insights SDK for captureing requests, exceptions and performance counters to Application Insights
+
+# Notes
+To propragate the log/trace context over process boundraies for protocols not default supported, take a look at how it is implemented in [DiagnosticsHandler](https://github.com/dotnet/corefx/blob/72f5cff116fdfa71f44090281e091b0dcbc31f8f/src/System.Net.Http/src/System/Net/Http/DiagnosticsHandler.cs#L189) for HttpClient does it. Also see the [HttpClient Diagnostic Instrumentation Users Guide](https://github.com/dotnet/corefx/blob/c082d21361608e3cc2ea3cddd90c2a0306828002/src/System.Net.Http/src/HttpDiagnosticsGuide.md).
+
+It makes use of the [System.Diagnostics.Activity](https://docs.microsoft.com/en-us/dotnet/api/system.diagnostics.activity?view=netcore-3.0) class to store the distributed tracing context.
