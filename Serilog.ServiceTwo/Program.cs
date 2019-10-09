@@ -19,6 +19,7 @@ namespace Serilog.ServiceTwo
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseSerilog()
                 .UseStartup<Startup>()
                 .UseUrls("http://*:5001");
     }

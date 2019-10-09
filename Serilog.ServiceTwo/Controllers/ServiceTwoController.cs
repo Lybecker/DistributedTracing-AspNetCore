@@ -1,5 +1,8 @@
 ﻿using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Linq;
 
 namespace Serilog.ServiceTwo.Controllers
 {
@@ -7,19 +10,22 @@ namespace Serilog.ServiceTwo.Controllers
     [ApiController]
     public class ServiceTwoController : ControllerBase
     {
+        private readonly ILogger<ServiceTwoController> _logger;
+
+        public ServiceTwoController(ILogger<ServiceTwoController> logger)
+        {
+            _logger = logger;
+        }
+
         [HttpGet]
         public ActionResult<string> Get()
         {
-            TelemetryConfiguration config = new TelemetryConfiguration("9cb2b528-bc45-451b-8ad6-97d686d7cb79");
-            config.TelemetryInitializers.Add(new Models.AppInsightsTelemetryInitializer());
-
-            Log.Logger = new LoggerConfiguration()
-                .WriteTo.Console()
-                .WriteTo
-                .ApplicationInsights(config, TelemetryConverter.Traces)
-                .CreateLogger();
-
-            Log.Information("In service two");
+            _logger.LogInformation("In service two");
+            _logger.LogInformation("ActivityID: " + System.Diagnostics.Activity.Current.Id);
+            _logger.LogInformation("SpanID    : " + System.Diagnostics.Activity.Current.SpanId);
+            _logger.LogInformation("Baggage   : " + string.Join(",", System.Diagnostics.Activity.Current.Baggage.Select(p => p.ToString()).ToArray()));
+            _logger.LogInformation("ParentID  : " + System.Diagnostics.Activity.Current.ParentId);
+            _logger.LogInformation("PareSpanID: " + System.Diagnostics.Activity.Current.ParentSpanId);
 
             return "Testing from Serilog";
         }

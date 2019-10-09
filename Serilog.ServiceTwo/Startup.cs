@@ -33,6 +33,16 @@ namespace Serilog.ServiceTwo
                 module.Initialize(TelemetryConfiguration.Active);
                 module.EnableW3CHeadersInjection = true;
             });
+
+            var sp = services.BuildServiceProvider();
+            var telemetryConfig = sp.GetRequiredService<TelemetryConfiguration>();
+
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.ApplicationInsights(telemetryConfig, TelemetryConverter.Traces)
+                .CreateLogger();
+
+            services.AddSingleton<Serilog.ILogger>(Log.Logger);
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
